@@ -10,15 +10,19 @@
   <body>
     <div class="container" id="container" unselectable="on">
       <div class="kanji-info" id="kanjiInfo">
+        <div class="new-label hidden" id="newLabel">&orarr;</div>
         <div class="kanji-focus" id="kanjiFocus"></div>
+        <div class="kanji-focus clickable hidden" id="kanjiOldFocus"></div>
         <div class="kanji-details">
-          Meaning: <label class="info-label" id="englishLabel"></label>
+          Radical: <label class="info-label" id="radicalLabel"></label>
           <br/>
-          Readings: <label class="info-label" id="readingsLabel"></label>
+          Meaning: <label class="info-label" id="englishLabel"></label>
           <br/>
           Grade: <label class="info-label" id="gradeLabel"></label>
           <br/>
           Stroke Count: <label class="info-label" id="strokesLabel"></label>
+          <br/>
+          Unicode: <label class="info-label" id="unicodeLabel"></label>
         </div>
       </div>
       <div class="kanji-table" id="kanjiTable"></div>
