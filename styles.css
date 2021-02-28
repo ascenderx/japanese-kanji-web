@@ -1,0 +1,110 @@
+:root {
+  --info-height: 150px;
+  --focus-size: 130px;
+  --cell-size: 75px;
+  --cell-margin: 3px;
+  --scrollbar-width: 30px;
+  --horizontal-kanji-count: 9;
+  --table-vertical-margin: 50px;
+  --table-width: calc(
+    var(--cell-size) * var(--horizontal-kanji-count)
+    + var(--scrollbar-width)
+    + var(--cell-margin) * 2 * (var(--horizontal-kanji-count) + 2)
+  );
+  --table-height: calc(100% - var(--table-vertical-margin) * 2);
+}
+
+@media (max-width: 750px) {
+  :root {
+    --horizontal-kanji-count: 6;
+    --cell-size: 50px;
+  }
+}
+
+@media (max-width: 400px) {
+  :root {
+    --focus-size: 50px;
+    --horizontal-kanji-count: 3;
+    --cell-size: 40px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  position: fixed;
+  left: calc(50% - var(--table-width)/2);
+  top: calc(50% - var(--table-height)/2);
+  width: var(--table-width);
+  height: var(--table-height);
+  border: 2px solid black;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select:none;
+  user-select:none;
+  -o-user-select:none;
+}
+
+.kanji-focus, .kanji-details {
+  display: inline-block;
+  margin: 0;
+}
+
+.kanji-info {
+  display: flex;
+  flex-direction: row;
+  height: var(--info-height);
+  border-bottom: 3px solid black;
+}
+
+.kanji-focus {
+  width: var(--focus-size);
+  height: 100%;
+  font-size: calc(var(--focus-size) * 0.75);
+  line-height: var(--info-height);
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+.kanji-details {
+  width: calc(100% - var(--focus-size) - 1px*6);
+  height: 100%;
+  padding: 5px;
+}
+
+.info-label {
+  font-weight: bold;
+}
+
+.kanji-table {
+  overflow-y: auto;
+  height: calc(100% - var(--info-height));
+  width: 100%;
+  padding: var(--cell-margin);
+}
+
+.kanji-element {
+  display: inline-block;
+  width: var(--cell-size);
+  height: var(--cell-size);
+  font-size: calc(var(--cell-size) * 0.75);
+  line-height: var(--cell-size);
+  text-align: center;
+  border: 1px solid black;
+  margin: 3px;
+}
+
+.kanji-element:hover {
+  background-color: yellow;
+  cursor: help;
+}
