@@ -6,28 +6,7 @@
   --scrollbar-width: 30px;
   --horizontal-kanji-count: 9;
   --table-vertical-margin: 50px;
-  --table-width: calc(
-    var(--cell-size) * var(--horizontal-kanji-count)
-    + var(--scrollbar-width)
-    + var(--cell-margin) * 2 * (var(--horizontal-kanji-count) + 2)
-  );
-  --table-height: calc(100% - var(--table-vertical-margin) * 2);
 }
-
-@media (max-width: 750px) {
-  :root {
-    --horizontal-kanji-count: 6;
-    --cell-size: 50px;
-  }
-}
-
-/* @media (max-width: 400px) {
-  :root {
-    --focus-size: 50px;
-    --horizontal-kanji-count: 3;
-    --table-width: 100%;
-  }
-} */
 
 * {
   box-sizing: border-box;
@@ -44,10 +23,10 @@ body {
 
 .container {
   position: fixed;
-  left: calc(50% - var(--table-width)/2);
-  top: calc(50% - var(--table-height)/2);
-  width: var(--table-width);
-  height: var(--table-height);
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  right: 10px;
   border: 2px solid black;
   -moz-user-select: none;
   -webkit-user-select: none;
@@ -83,9 +62,6 @@ body {
   line-height: var(--info-height);
   text-align: center;
   border-right: 1px solid black;
-}
-
-.clickable {
   cursor: pointer;
 }
 
@@ -100,11 +76,16 @@ body {
   font-weight: bold;
 }
 
-.kanji-table {
+.kanji-table-wrapper {
   overflow-y: auto;
   height: calc(100% - var(--info-height));
   width: 100%;
   padding: var(--cell-margin);
+}
+
+.kanji-table {
+  width: 100%;
+  margin: 0 auto;
 }
 
 .kanji-element {
@@ -153,4 +134,16 @@ body {
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 450px) {
+  :root {
+    --info-height: 100px;
+    --focus-size: 100px;
+    --cell-size: 40px;
+  }
+
+  .kanji-info {
+    font-size: 12px;
+  }
 }
