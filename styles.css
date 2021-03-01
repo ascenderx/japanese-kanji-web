@@ -93,6 +93,7 @@ body {
   width: calc(100% - var(--focus-size) - 1px*6);
   height: 100%;
   padding: 5px;
+  overflow-y: auto;
 }
 
 .info-label {
