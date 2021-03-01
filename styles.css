@@ -21,13 +21,13 @@
   }
 }
 
-@media (max-width: 400px) {
+/* @media (max-width: 400px) {
   :root {
     --focus-size: 50px;
     --horizontal-kanji-count: 3;
-    --cell-size: 40px;
+    --table-width: 100%;
   }
-}
+} */
 
 * {
   box-sizing: border-box;
