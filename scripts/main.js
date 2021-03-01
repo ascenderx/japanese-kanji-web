@@ -15,8 +15,6 @@ function ajaxGetAsync(url) {
   });
 }
 
-let kyouikuPlus;
-
 let container;
 let kanjiFocus;
 let kanjiOldFocus;
@@ -66,9 +64,6 @@ window.addEventListener('load', async (_) => {
     event.preventDefault();
     return false;
   });
-
-  let kyouikuPlusJSON = await ajaxGetAsync('./json/kyouikuPlus.json');
-  kyouikuPlus = JSON.parse(kyouikuPlusJSON);
 
   let selectedIndex = -1;
   let kanjiElements = [];
