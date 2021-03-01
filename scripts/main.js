@@ -45,6 +45,18 @@ function focusOnKanji(kanjiItem) {
   unicodeLabel.innerText = kanjiItem.kanji.charCodeAt(0).toString(16);
 }
 
+function revealKanjiFocus() {
+  kanjiOldFocus.classList.add('hidden');
+  kanjiFocus.classList.remove('hidden');
+  newLabel.innerHTML = '&orarr;';
+}
+
+function revealKanjiOldFocus() {
+  kanjiFocus.classList.add('hidden');
+  kanjiOldFocus.classList.remove('hidden');
+  newLabel.innerHTML = '&olarr;';
+}
+
 window.addEventListener('load', async (_) => {
   container = document.getElementById('container');
   kanjiFocus = document.getElementById('kanjiFocus');
@@ -120,6 +132,7 @@ window.addEventListener('load', async (_) => {
         kanjiElement.classList.remove('kanji-selected');
       }
       focusOnKanji(item);
+      revealKanjiFocus();
     });
 
     kanjiTable.appendChild(kanjiElement);
@@ -131,14 +144,10 @@ window.addEventListener('load', async (_) => {
       return;
     }
     
-    kanjiFocus.classList.add('hidden');
-    kanjiOldFocus.classList.remove('hidden');
-    newLabel.innerHTML = '&olarr;';
+    revealKanjiOldFocus();
   });
 
   kanjiOldFocus.addEventListener('click', (_) => {
-    kanjiOldFocus.classList.add('hidden');
-    kanjiFocus.classList.remove('hidden');
-    newLabel.innerHTML = '&orarr;';
+    revealKanjiFocus();
   });
 });
